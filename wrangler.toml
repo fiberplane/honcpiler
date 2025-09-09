@@ -1,0 +1,39 @@
+name = "honcpiler"
+main = "src/index.ts"
+compatibility_date = "2025-02-04"
+compatibility_flags = [ "nodejs_compat" ]
+
+[dev]
+port = 8437
+
+# [vars]
+# MY_VAR = "my-variable"
+
+# Workers Logs
+# Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
+# Configuration: https://developers.cloudflare.com/workers/observability/logs/workers-logs/#enable-workers-logs
+[observability]
+enabled = true
+
+[[kv_namespaces]]
+binding = "KV"
+id = "b1e708b8b87a48159929cc0f48f2ef81"
+
+[[d1_databases]]
+binding = "COMPILE_DB"
+database_name = "honc-compile-results"
+database_id = "212f5ba8-41fc-43d9-be9e-ee6359c00e89"
+
+# [ai]
+# binding = "AI"
+
+## PREVIEW ENV
+[env.preview]
+[[env.preview.kv_namespaces]]
+binding = "KV"
+id = "525a0a661b7d4850b945c4f67044b1c7"
+
+[[env.preview.d1_databases]]
+binding = "COMPILE_DB"
+database_name = "honc-compile-results-preview"
+database_id = "5c281828-c95c-45dd-8925-ff440385a632"

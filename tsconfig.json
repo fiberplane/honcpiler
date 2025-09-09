@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "jsxImportSource": "hono/jsx",
+    "types": [
+      "@cloudflare/workers-types",
+    ]
+  },
+  "include": ["src/**/*.ts", "vite-env.d.ts"]
+}

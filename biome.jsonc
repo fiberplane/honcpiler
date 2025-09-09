@@ -1,0 +1,10 @@
+{
+  "$schema": "../../node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["../../biome.jsonc"],
+  "formatter": {
+    "ignore": ["worker-configuration.d.ts", "src/package-types/**/*.d.ts"]
+  },
+  "files": {
+    "ignore": ["test/kv-seed/**/*.ts"]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "types": [
+      "@cloudflare/workers-types",
+      "@cloudflare/vitest-pool-workers", // provides `cloudflare:test` types
+    ],
+  },
+  "include": [
+    "./**/*.ts",
+    "../src/**/*.ts",
+    "../vite-env.d.ts"
+  ],
+  "exclude": [
+    "../src/meow.ts"
+  ]
+}

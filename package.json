@@ -1,0 +1,51 @@
+{
+  "name": "honcpiler",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "vite build",
+    "build:preview": "CLOUDFLARE_ENV=preview vite build",
+    "check:ci": "biome ci .",
+    "cf-typegen": "wrangler types --strict-vars false",
+    "copy-types": "tsx scripts/copy-type-definitions.ts",
+    "deploy": "pnpm build && cd dist/honcpiler && pnpm wrangler deploy",
+    "deploy:preview": "pnpm build:preview && cd dist/honcpiler && pnpm wrangler deploy",
+    "dev": "vite --port 8437",
+    "download-types": "tsx scripts/download-package-types.ts",
+    "format": "biome check --write .",
+    "kv:seed:prod": "tsx scripts/dependencies-uploader.ts",
+    "test": "vitest",
+    "test:e2e": "tsx scripts/remote-compile.ts",
+    "typecheck": "pnpm typecheck:worker && pnpm typecheck:tests",
+    "typecheck:worker": "tsc --noEmit",
+    "typecheck:tests": "tsc -p test/tsconfig.json --noEmit",
+    "types": "wrangler types"
+  },
+  "dependencies": {
+    "@andrewbranch/untar.js": "1.0.3",
+    "@mjackson/tar-parser": "^0.3.0",
+    "@typescript/vfs": "^1.6.1",
+    "fflate": "^0.8.2",
+    "typescript": "5.8.3",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.10.2",
+    "@cloudflare/vitest-pool-workers": "0.8.65",
+    "@cloudflare/workers-types": "^4.20250722.0",
+    "@types/pacote": "^11.1.8",
+    "axios": "^1.9.0",
+    "dotenv": "^16.6.1",
+    "miniflare": "^4.20250416.0",
+    "pacote": "^17.0.5",
+    "tsx": "4.20.3",
+    "vite": "6.3.5",
+    "vitest": "^3.2.4",
+    "wrangler": "^4.26.1"
+  },
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
+}
