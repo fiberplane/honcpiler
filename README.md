@@ -27,17 +27,12 @@ The service creates a virtual file system with TypeScript libraries and dependen
 
 ## Architecture
 
-```
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   Client Code   │───▶│    HONCpiler     │───▶│   KV Storage    │
-│                 │    │   (CF Worker)    │    │ (Package Types) │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
-                              │
-                              ▼
-                       ┌──────────────────┐
-                       │  TypeScript VFS  │
-                       │ + Error Results  │
-                       └──────────────────┘
+```mermaid
+flowchart LR
+    A[Client Code]
+    A --> B{"HONCpiler <br> (CF Worker)"}
+    B --> C["KV Storage <br> (Package Types)"]
+    B --> D["TypeScript VFS <br> + Error Results"]
 ```
 
 ## API
@@ -257,4 +252,4 @@ HONCpiler automatically fetches and caches type definitions for npm packages:
 
 ## License
 
- MIT
+ [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.txt)
