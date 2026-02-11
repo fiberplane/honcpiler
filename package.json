@@ -38,7 +38,7 @@
     "@cloudflare/vitest-pool-workers": "0.8.65",
     "@cloudflare/workers-types": "^4.20250722.0",
     "@types/pacote": "^11.1.8",
-    "axios": "^1.9.0",
+    "axios": "^1.13.5",
     "dotenv": "^16.6.1",
     "miniflare": "^4.20250416.0",
     "pacote": "^17.0.5",
